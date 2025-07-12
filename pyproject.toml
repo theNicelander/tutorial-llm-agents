@@ -1,5 +1,5 @@
 [project]
-name = "agents"
+name = "llm-ollama-rag"
 version = "0.1.0"
 description = "Add your description here"
 readme = "README.md"

@@ -3,37 +3,6 @@ revision = 2
 requires-python = ">=3.13"
 
 [[package]]
-name = "agents"
-version = "0.1.0"
-source = { virtual = "." }
-dependencies = [
-    { name = "ipykernel" },
-    { name = "langchain" },
-    { name = "langchain-chroma" },
-    { name = "langchain-ollama" },
-    { name = "loguru" },
-    { name = "pandas" },
-    { name = "pydantic" },
-    { name = "pydantic-settings" },
-    { name = "python-dotenv" },
-    { name = "ruff" },
-]
-
-[package.metadata]
-requires-dist = [
-    { name = "ipykernel", specifier = ">=6.29.5" },
-    { name = "langchain", specifier = ">=0.3.26" },
-    { name = "langchain-chroma", specifier = ">=0.2.4" },
-    { name = "langchain-ollama", specifier = ">=0.3.4" },
-    { name = "loguru", specifier = ">=0.7.3" },
-    { name = "pandas", specifier = ">=2.3.1" },
-    { name = "pydantic", specifier = ">=2.11.7" },
-    { name = "pydantic-settings", specifier = ">=2.10.1" },
-    { name = "python-dotenv", specifier = ">=1.1.1" },
-    { name = "ruff", specifier = ">=0.12.2" },
-]
-
-[[package]]
 name = "annotated-types"
 version = "0.7.0"
 source = { registry = "https://pypi.org/simple" }
@@ -836,6 +805,37 @@ dependencies = [
 sdist = { url = "https://files.pythonhosted.org/packages/5c/92/7885823f3d13222f57773921f0da19b37d628c64607491233dc853a0f6ea/langsmith-0.4.5.tar.gz", hash = "sha256:49444bd8ccd4e46402f1b9ff1d686fa8e3a31b175e7085e72175ab8ec6164a34", size = 352235, upload-time = "2025-07-10T22:08:04.505Z" }
 wheels = [
     { url = "https://files.pythonhosted.org/packages/c8/10/ad3107b666c3203b7938d10ea6b8746b9735c399cf737a51386d58e41d34/langsmith-0.4.5-py3-none-any.whl", hash = "sha256:4167717a2cccc4dff5809dbddc439628e836f6fd13d4fdb31ea013bc8d5cfaf5", size = 367795, upload-time = "2025-07-10T22:08:02.548Z" },
+]
+
+[[package]]
+name = "llm-ollama-rag"
+version = "0.1.0"
+source = { virtual = "." }
+dependencies = [
+    { name = "ipykernel" },
+    { name = "langchain" },
+    { name = "langchain-chroma" },
+    { name = "langchain-ollama" },
+    { name = "loguru" },
+    { name = "pandas" },
+    { name = "pydantic" },
+    { name = "pydantic-settings" },
+    { name = "python-dotenv" },
+    { name = "ruff" },
+]
+
+[package.metadata]
+requires-dist = [
+    { name = "ipykernel", specifier = ">=6.29.5" },
+    { name = "langchain", specifier = ">=0.3.26" },
+    { name = "langchain-chroma", specifier = ">=0.2.4" },
+    { name = "langchain-ollama", specifier = ">=0.3.4" },
+    { name = "loguru", specifier = ">=0.7.3" },
+    { name = "pandas", specifier = ">=2.3.1" },
+    { name = "pydantic", specifier = ">=2.11.7" },
+    { name = "pydantic-settings", specifier = ">=2.10.1" },
+    { name = "python-dotenv", specifier = ">=1.1.1" },
+    { name = "ruff", specifier = ">=0.12.2" },
 ]
 
 [[package]]
