@@ -1,0 +1,18 @@
+[project]
+name = "agents"
+version = "0.1.0"
+description = "Add your description here"
+readme = "README.md"
+requires-python = ">=3.13"
+dependencies = [
+    "ipykernel>=6.29.5",
+    "langchain>=0.3.26",
+    "langchain-chroma>=0.2.4",
+    "langchain-ollama>=0.3.4",
+    "loguru>=0.7.3",
+    "pandas>=2.3.1",
+    "pydantic>=2.11.7",
+    "pydantic-settings>=2.10.1",
+    "python-dotenv>=1.1.1",
+    "ruff>=0.12.2",
+]

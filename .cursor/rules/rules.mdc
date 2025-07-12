@@ -1,0 +1,22 @@
+---
+description: 
+globs: 
+alwaysApply: true
+---
+Assume python for code, write python 3.12 or later.
+Write clean, modular code. 
+Follow PEP8 standards religiously.
+Assume code is auto-formatted with ruff, so use commas where possible to improve readability for long lists.
+Functional is preferred over object oriented.
+However, use pydantic to represent concepts if classes are used. 
+Favour composition, over inheritance. Exception is pydantic baseclass
+Docstrings should be minimal. Don't explain arguments, unless asked to
+Always use loguru, never print. 
+Assume use of UV, not pip, venv or poetry. Never do uv pip install 
+Never edit the pyproject.toml, without asking. Default to running `uv add <package-name>` if a package is missing.
+Always use typehints. 
+Use PEP 585-style built-in generics (list[int], dict[str, int], etc.) instead of typing.List, typing.Dict, etc.
+Correct typehint: def foo(bar: list[int])
+Incorrect typehint: def foo(bar: List[int])
+Use Path from pathlib for anything involving system paths. 
+Use UPPER_CASE for constants.
