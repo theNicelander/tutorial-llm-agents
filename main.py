@@ -2,7 +2,7 @@ from langchain_core.prompts import ChatPromptTemplate
 from langchain_ollama import OllamaLLM
 from loguru import logger
 
-from vector import setup_restaurant_retriever
+from src.vector import setup_restaurant_retriever
 
 model = OllamaLLM(model="llama3.2")
 retriever = setup_restaurant_retriever()

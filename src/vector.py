@@ -9,7 +9,7 @@ from langchain_ollama import OllamaLLM
 from langchain_ollama.embeddings import OllamaEmbeddings
 from loguru import logger
 
-from config import SETTINGS
+from src.config import SETTINGS
 
 
 def setup_restaurant_retriever() -> BaseRetriever:
