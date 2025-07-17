@@ -1,0 +1,46 @@
+repos:
+  # Run lightweight checks first
+  - repo: https://github.com/pre-commit/pre-commit-hooks
+    rev: v5.0.0
+    hooks:
+      - id: check-yaml
+      - id: check-json
+      - id: check-toml
+      - id: pretty-format-json
+        args: ['--autofix']
+        exclude_types: [jupyter]
+      - id: end-of-file-fixer
+      - id: trailing-whitespace
+      - id: check-merge-conflict
+      - id: check-added-large-files
+        args: ['--maxkb=5000']
+      - id: detect-private-key
+
+  # Then run the heavier local formatters/linters
+  - repo: local
+    hooks:
+      - id: ruff
+        name: "Ruff Linter"
+        entry: uv run ruff check --fix --unsafe-fixes
+        language: system
+        types_or: [python, pyi, jupyter]
+
+      - id: ruff-format
+        name: "Ruff Formatter"
+        entry: uv run ruff format
+        language: system
+        types_or: [python, pyi, jupyter]
+
+      - id: nbstripout
+        name: "Clean Notebooks"
+        entry: uv run nbstripout
+        language: system
+        types: [jupyter]
+        args: ["--drop-empty-cells"]
+
+
+      - id: ty
+        name: "ty type checks"
+        entry: uv run ty check
+        language: system
+        types_or: [python, pyi, jupyter]

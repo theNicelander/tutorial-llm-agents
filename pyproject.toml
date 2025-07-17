@@ -5,7 +5,6 @@ description = "Add your description here"
 readme = "README.md"
 requires-python = ">=3.12"
 dependencies = [
-    "ipykernel>=6.29.5",
     "langchain>=0.3.26",
     "langchain-chroma>=0.2.4",
     "langchain-ollama>=0.3.4",
@@ -14,5 +13,100 @@ dependencies = [
     "pydantic>=2.11.7",
     "pydantic-settings>=2.10.1",
     "python-dotenv>=1.1.1",
-    "ruff>=0.12.2",
+]
+
+[dependency-groups]
+dev = [
+    "pre-commit>=4.2.0",
+    "ruff>=0.12.3",
+    "ty>=0.0.1a14",
+    "ipykernel>=6.29.5",
+    "nbstripout>=0.8.1",
+]
+
+
+[tool.ruff.lint.mccabe]
+max-complexity = 6 # Maximum McCabe complexity
+
+[tool.ruff.lint]
+# Allow auto-fix for all applicable rules
+extend-fixable = ["ALL"]
+
+# Linting rule reference: https://docs.astral.sh/ruff/rules/
+# This setup balances correctness, readability, and performance for data science / GenAI pipelines.
+select = [
+    # Style and formatting
+    "E",   # pycodestyle errors
+    "W",   # pycodestyle warnings
+    "I",   # isort: import sorting
+    "COM", # comma formatting
+
+    # Linting and correctness
+    "F",   # pyflakes: undefined names, unused imports
+    "B",   # bugbear: common Python bugs
+    "S",   # bandit: security issues (e.g. eval, pickle)
+    "ARG", # unused function arguments
+    "BLE", # blind excepts (broad try/except blocks)
+    "TRY", # try-except anti-patterns (tryceratops)
+    "RET", # return statements best practices
+    "A",   # builtins: disallow shadowing built-in names
+
+    # Code quality and simplicity
+    "C",    # mccabe: cyclomatic complexity
+    "SIM",  # code simplification suggestions
+    "PERF", # performance anti-patterns
+    "FURB", # refurbished code style suggestions
+    "UP",   # pyupgrade: update syntax to modern Python
+
+    # Naming and typing
+    "N",   # pep8-naming
+    "ANN", # missing type annotations
+    "PYI", # Python stub files
+
+    # Project-specific / ecosystem rules
+    "PD",   # pandas-specific issues
+    "NPY",  # numpy-specific issues
+    "DTZ",  # datetime timezone awareness
+    "PTH",  # pathlib over os.path
+    "C4",   # comprehensions best practices
+    "AIR",  # Airflow-specific rules
+    "FAST", # FastAPI-specific rules
+    "PT",   # pytest-specific rules
+
+    # Tool-specific / meta
+    "PL",  # pylint rules
+    "PIE", # miscellaneous best practices
+    "RUF", # ruff-specific rules
+]
+
+ignore = [
+    "E722",   # allow bare except (e.g. in notebooks or quick iterations)
+    "E501",   # allow long lines (use formatter like Black)
+    "RUF001", # ambiguous Unicode (e.g. variable names with symbols)
+    "TRY003", # don't force long error messages
+    "TRY300", # allow bare `return` instead of `else: return`
+    "DTZ005", # allow naive `datetime.now()` calls
+    "COM812", # trailing comma conflicts with formatter
+    "S608",   # allow string SQL queries (e.g. for pandas.read_sql)
+    "PD901",  # allow variable named `df` (common in data science)
+    "NPY002", # allow legacy numpy RNG (e.g. np.random)
+]
+
+[tool.ruff.lint.per-file-ignores]
+"*.ipynb" = [ # Relax some rules for Jupyter notebooks
+    "ANN",     # skip type annotations (not practical in notebooks)
+    "BLE",     # allow broad except blocks in exploratory code
+    "PLC0415", # allow non-top-level imports (typical in notebooks)
+    "PLR0913", # allow many function args (e.g. for model training)
+    "DTZ001",  # allow naive datetimes
+    "PLR2004", # allow magic numbers (e.g. learning rates)
+]
+
+"tests/*" = [ # Relax some rules for tests
+    "PLR2004", # magic numbers
+    "PLR0911", # too many return statements
+    "PLR0912", # too many branches
+    "C901",    # too complex tests
+    "S101",    # asserts
+    "ANN",     # annotations
 ]
