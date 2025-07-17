@@ -22,6 +22,7 @@ dev = [
     "ty>=0.0.1a14",
     "ipykernel>=6.29.5",
     "nbstripout>=0.8.1",
+    "pytest>=8.4.1",
 ]
 
 [tool.hatch.build.targets.sdist]
