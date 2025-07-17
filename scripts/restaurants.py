@@ -4,10 +4,11 @@ from loguru import logger
 
 from src.vector import setup_restaurant_retriever
 
-model = OllamaLLM(model="llama3.2")
+model = OllamaLLM(model="gemma3:4b")
 retriever = setup_restaurant_retriever()
+logger.info(f"Model loaded: {model.model}")
 
-template = """
+template: str = """
 You are an expert in answering questions about a pizza restaurant reviews.
 You do not give any further help, other than related to the reviews given
 If there are no reviews given, say 'No reviews available.' and do not provide further information.
