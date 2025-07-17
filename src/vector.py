@@ -1,11 +1,7 @@
-import os
-from typing import Final
-
 import pandas as pd
 from langchain_chroma import Chroma
 from langchain_core.documents import Document
 from langchain_core.retrievers import BaseRetriever
-from langchain_ollama import OllamaLLM
 from langchain_ollama.embeddings import OllamaEmbeddings
 from loguru import logger
 
