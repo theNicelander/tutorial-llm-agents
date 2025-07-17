@@ -5,6 +5,8 @@ description = "Add your description here"
 readme = "README.md"
 requires-python = ">=3.12"
 dependencies = [
+    "accelerate>=1.9.0",
+    "chonkie[neural,st]>=1.1.0",
     "langchain>=0.3.26",
     "langchain-chroma>=0.2.4",
     "langchain-ollama>=0.3.4",
@@ -13,6 +15,7 @@ dependencies = [
     "pydantic>=2.11.7",
     "pydantic-settings>=2.10.1",
     "python-dotenv>=1.1.1",
+    "sentence-transformers>=5.0.0",
 ]
 
 [dependency-groups]
